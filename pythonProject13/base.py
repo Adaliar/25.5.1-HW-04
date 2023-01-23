@@ -12,7 +12,8 @@ class SeleniumBase:
         locating = {
             'id': By.ID,
             'css': By.CSS_SELECTOR,
-            'xpath': By.XPATH
+            'xpath': By.XPATH,
+            'class': By.CLASS_NAME
         }
         return locating[find_by]
 
@@ -47,15 +48,17 @@ class SeleniumBase:
             'LOG_YA': 'passp-field-login',
             'ENTER_YA': '//*[@id="passp:sign-in"]',
             'YA_PASS': '//*[@id="passp-field-passwd"]',
-            'SELECT': 't-btn-tab-ls'
-
+            'SELECT': 't-btn-tab-ls',
+            'ERROR_CHECK': 'form-error-message',
+            'ERROR': '//*[@id="page-right"]/div/div/div/form/div[1]/div[2]/span',
+            'ERROR_REGIST': '//*[@id="page-right"]/div/div/div/form/div[4]/div[1]/span',
+            'AUTHO_PAGE': 'card-container__title',
+            'ARE': 'card-modal__title'
         }
         return loc_data[locator]
 
     def get_user_info(self, find_by, locator):
-        return self.__wait.until(
-            ec.visibility_of_element_located((self.__get_selenium_by(find_by), self.get_log_locator(locator))))
+        return self.__wait.until(ec.visibility_of_element_located((self.__get_selenium_by(find_by), self.get_log_locator(locator))))
 
     def check_text(self, find_by, locator):
-        return self.__wait.until(
-            ec.visibility_of_element_located((self.__get_selenium_by(find_by), self.get_log_locator(locator))))
+        return self.__wait.until(ec.visibility_of_element_located((self.__get_selenium_by(find_by), self.get_log_locator(locator))))

@@ -96,3 +96,18 @@ class Selecting(SeleniumBase):
 
     def select(self):
         return self.get_user_info('id', 'SELECT')
+
+    def error_check(self):
+        return self.check_text('id', 'ERROR_CHECK')
+
+    def error_mess(self):
+        return self.check_text('xpath', 'ERROR')
+
+    def error_regist(self):
+        return self.check_text('xpath', 'ERROR_REGIST')
+
+    def check_autho_page(self):
+        return self.check_text('class', 'AUTHO_PAGE')
+
+    def acc_are(self):
+        return self.check_text('class', 'ARE')
